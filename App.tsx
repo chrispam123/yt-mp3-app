@@ -1,26 +1,18 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
-// Creamos el cliente que gestionará todas las peticiones
+import { HomeScreen } from './src/screens/HomeScreen';
+
 const queryClient = new QueryClient();
 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <View style={styles.container}>
-        <Text>YT MP3 Downloader - Base Lista</Text>
+      <SafeAreaView style={{ flex: 1 }}>
+        <HomeScreen />
         <StatusBar style="auto" />
-      </View>
+      </SafeAreaView>
     </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
